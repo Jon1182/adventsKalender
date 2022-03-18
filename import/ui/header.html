@@ -1,0 +1,16 @@
+<template name="header"> 
+
+    <header class="mb-5">
+        <div>
+            <h3 class="float-md-start mb-0">Cover</h3>
+            <nav class="nav nav-masthead justify-content-center float-md-end">
+                {{#if currentUser }}
+                    <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                 
+                    <a class="nav-link logout btn" >Logout</a>
+                {{/if}}
+            </nav>
+        </div>
+    </header>
+
+</template> 
