@@ -1,1 +1,1 @@
-import '../import/ui/main'
+import '../imports/ui/main'

@@ -21,7 +21,7 @@ Router.onBeforeAction(function () {
 
 
 Router.route('/', function () { 
-    this.render('home');
+    this.render('calendarInput');
 });
 
 Router.route('/home', function () { 
