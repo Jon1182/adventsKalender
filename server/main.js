@@ -1,5 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 import '../imports/api/publication.js'
+import '../imports/api/editPublication.js'
+import './methods.js';
+
+ 
 
 
 

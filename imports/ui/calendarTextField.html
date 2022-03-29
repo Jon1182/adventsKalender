@@ -1,0 +1,8 @@
+<template name="calendarTextField">
+    <div class="input-group input-group-lg">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Day {{days.day}}</span>  
+        <input type="text" class="form-control" value="{{days.riddle}}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="day{{days.day}}">
+        <span class="input-group-text"><i class="fa-solid {{#if days.viewed}}fa-eye{{else}}fa-eye-slash{{/if}}"></i></span>
+    </div>
+</template>
+

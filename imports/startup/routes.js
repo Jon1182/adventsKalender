@@ -1,3 +1,5 @@
+import { Calendar } from "../db/calendarCollection";
+
 Router.configure({
   layoutTemplate: 'main'
 });
@@ -6,7 +8,6 @@ Router.configure({
 Router.onBeforeAction(function () {
   // all properties available in the route function
   // are also available here such as this.params
-  $('body').addClass("d-flex h-100 text-center text-white bg-dark");
 
   if (!Meteor.userId()) {
     // if the user is not logged in, render the Login template
@@ -21,9 +22,46 @@ Router.onBeforeAction(function () {
 
 
 Router.route('/', function () { 
-    this.render('calendarInput');
+    this.render('calendarOverView');
 });
 
 Router.route('/home', function () { 
-  this.render('home');
-})
+  this.render('calendarOverView');
+});
+
+
+
+
+Router.route('/newCalendar', function () { 
+  this.render('newCalendar');
+});
+
+
+
+
+
+Router.route('/calendarView/:_id', {
+  name: 'calendarView',
+  layoutTemplate: 'calendarLayout',
+  template: 'calendarView',
+  data:function(){
+    return Calendar.findOne({_id: this.params._id})
+  },
+  waitOn: function(){
+    return Meteor.subscribe('getCalendarByID', this.params_id)
+  }
+});
+
+Router.route('/calendarEdit/:_id',  {
+  name: 'calendarEdit',
+  template: 'calendarEdit',
+  data: function() {
+    return Calendar.findOne({_id: this.params._id})
+  },
+  waitOn: function() {
+    this.render('home')
+    return Meteor.subscribe('getCalendarByID', this.params._id)
+  }
+},)
+
+

@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
-import { Calendar } from '../db/CalendarCollection';
+import { Calendar } from '../db/calendarCollection';
 
-Meteor.publish('calendar', function() {
+Meteor.publish('getCalendarList', function() {  //collection wird bereit gestellt
     return Calendar.find({});
 });
+
